@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="card card-container">
+      <form class="form-signin" (ngSubmit)="onSignin(fm)" #fm="ngForm">
+          <span id="reauth-email" class="reauth-email"></span>
+          <input type="email" id="email"  name="email" ngModel class="form-control"  placeholder="Email address" required>
+          <input type="password" id="password" name="password" ngModel class="form-control"  placeholder="Password" required>
+          <div id="remember" class="checkbox">
+              <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+              </label>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block "   type="submit">Sign in</button>
+      </form><!-- /form -->
+      <a href="#" class="forgot-password">
+          Forgot the password?
+      </a>
+      <span  [ngSwitch]="logDone">          
+          <div class="alert alert-success" *ngSwitchCase="true">
+            <strong>Success!</strong>login.
+          </div>
+          <div class="alert alert-danger" *ngSwitchCase="false">
+            <strong>Failed!</strong> login.
+          </div>
+           
+      </span>
+  </div>
