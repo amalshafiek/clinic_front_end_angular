@@ -9,12 +9,12 @@ import  'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
-
-  register:boolean;
-  loggin:boolean;
+  login:boolean;
+  is_doctor:number;
+  is_active:number;
+  
   constructor(private http:Http) {
-    this.loggin=false;
-    this.register=false;
+    this.login=false;
    }
    //signup
    signup(username:string,email:string,password:string)
@@ -30,21 +30,23 @@ export class AuthService {
    //signin
    signin(email:string,password:string)
    {
-     //this.login=true;
+     
      return this.http.post('http://localhost/clinic/public/api/client/signin',{
       email:email,password:password},
    {headers:new Headers({'X-Requested-With':'XMLHttpRequest'})})
    .map(
      (response:Response)=>{
        const token=response.json().token;
-       this.loggin=response.json().loggin;
-       //this.loggin=true;
-      return {token:token,loggin:this.loggin};
+       this.is_doctor=response.json().is_doctor;
+       this.is_active=response.json().is_active;
+       this.login=true;
+      return {token:token,is_doctor:this.is_doctor,is_active:this.is_active};
      }
    ).do(
      tokenValue=>{
        //save the token in localeStorage
        localStorage.setItem('token',tokenValue.token);
+
        
      }                 
    );
@@ -54,6 +56,12 @@ export class AuthService {
    getToken()
    {
      return localStorage.getItem('token');
+   }
+   logout()
+   {
+    localStorage.removeItem('token');
+    this.login=false;
+    return false;
    }
 
 

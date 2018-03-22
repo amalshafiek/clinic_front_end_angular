@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  logDone:boolean;
+  
   constructor(private authService:AuthService,private router: Router) {
     
    }
@@ -22,15 +22,19 @@ export class SigninComponent implements OnInit {
     this.authService.signin(form.value.email,form.value.password)
     .subscribe(
       //for get the token 
-      tokenData=>{console.log(tokenData),this.logDone=true;},
-      error=>{console.log(error),this.logDone=false;}
+      token=>{console.log(token),this.authService.login=true;},
+      error=>{console.log(error),this.authService.login=false;}
     );
+if(this.authService.is_doctor==0 && this.authService.is_active==1 )
+{
+    this.router.navigate(["secretary"]);
+}
+if(this.authService.is_doctor==1 && this.authService.is_active==1)
+{
+  this.router.navigate(["doctor"]);    
+}
 
-    
-    //to o to signup 
-    //this.router.navigate(["signup"]);
-    
-  }
+}
 
 
 }

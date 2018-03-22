@@ -1,0 +1,22 @@
+.homebackground{
+    background-image: url(../assets/images/book.jpg);
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  height:100%;
+  
+  }
+  .headone{
+  
+  padding-top:20%;
+  text-align:center;
+  font-family:"Courier New";
+  font-size:70px;
+  color:#19568B;
+  font-weight:bold;
+  }
+  .footer-copyright{
+  
+  background-color:#19568B;
+  }
+  

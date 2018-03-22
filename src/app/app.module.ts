@@ -12,6 +12,10 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthService } from './shared/Auth/auth.service';
 import { UserService } from './shared/User/user.service';
 import { PatientsService } from'./shared/Patients/patients.service';
+import { ReservationsService } from'./shared/Reservations/reservations.service';
+import { DoctorsService } from'./shared/Doctors/doctors.service';
+
+
 
 
 import { AuthGuard } from './shared/Guards/auth.guard';
@@ -23,12 +27,18 @@ import { RouterModule, Routes } from '@angular/router';
 //Interfaces
 import { Iuser } from './Interfaces/iuser';
 import { Ipatient } from './Interfaces/ipatient';
+import { Ireservation } from './Interfaces/ireservation';
+
 
 import { UserComponent } from './user/user.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { SecretaryComponent } from './secretary/secretary.component';
 import { PatientsComponent } from './patients/patients.component';
 import { PatientDetailsComponent } from './patients/patient-details/patient-details.component';
+import { ReservationsComponent } from './reservations/reservations.component';
+import { AddReservationComponent } from './reservations/add-reservation/add-reservation.component';
+import { NavComponent } from './nav/nav.component';
+
 
 
 
@@ -42,7 +52,11 @@ import { PatientDetailsComponent } from './patients/patient-details/patient-deta
     DoctorComponent,
     SecretaryComponent,
     PatientsComponent,
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    ReservationsComponent,
+    AddReservationComponent,
+    NavComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -77,11 +91,17 @@ import { PatientDetailsComponent } from './patients/patient-details/patient-deta
           path:"patient-details/:id",component:PatientDetailsComponent,
         },
         {
+          path:"add-reservation",component:AddReservationComponent,
+        },
+        {
+          path:"reservation-details/:data.reservation_id",component:ReservationsComponent,
+        },
+        {
           path:" ",component:AppComponent,
         },
         ]),
   ],
-  providers: [AuthService,UserService,AuthGuard,PatientsService],
+  providers: [AuthService,UserService,AuthGuard,PatientsService,ReservationsService,DoctorsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

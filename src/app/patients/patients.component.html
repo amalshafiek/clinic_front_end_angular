@@ -1,3 +1,19 @@
-<p>
-  patients works!
-</p>
+
+<table style="width:100%;" class="table table-striped table-bordered">
+  <tr>
+      <th>Firstname</th>
+      <th>Email</th>
+  </tr>
+  
+  <tr *ngFor="let data of patient">
+      
+      <td><a href="/patient-details/1">{{data.name}}</a></td>
+      <td><a href="/patient-details/1">{{data.card_number}}</a></td>
+      
+  </tr>
+
+
+  
+
+</table>
+

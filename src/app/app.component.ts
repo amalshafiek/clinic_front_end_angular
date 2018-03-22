@@ -7,6 +7,9 @@ import { AuthService } from './shared/Auth/auth.service';
 // Routing
 import { RouterModule, Routes } from '@angular/router';
 
+//auth service
+
+
 import 'rxjs/add/operator/toPromise';
 import { NgForm }   from '@angular/forms';
 
@@ -18,6 +21,7 @@ import { NgForm }   from '@angular/forms';
 export class AppComponent {
   constructor(){}
  
-
+ 
+  
   }
 

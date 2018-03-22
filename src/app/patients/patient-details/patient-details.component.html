@@ -1,3 +1,101 @@
-<p>
-  patient-details works!
-</p>
+<body class="login2background">
+        <div style="margin-top:-10%;">
+              <div class="container">
+                  <div class="col-lg-6 col-md-6 col-sm-8  loginbox">
+                      <div class=" row loginbox_content ">
+                          <div class="input-group input-group-sm" >
+                             <label>Name:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                             <label style="color:blue">{{ patient.name }}</label>
+                              
+                          </div>
+                          <br>
+                          <div class="input-group input-group-sm">
+                             
+                                    <label>Gender:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <label style="color:blue" >{{ patient.gender }}</label>
+                          </div>
+                          <div class="input-group input-group-sm">
+                                
+                                      <label>Phone:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                      <label style="color:blue">{{ patient.phone }}</label>
+                            </div>
+                            <div class="input-group input-group-sm">
+                                   
+                                          <label>Card Number:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                          <label style="color:blue">{{ patient.card_number }}</label>
+                            </div>
+                            <div class="input-group input-group-sm">
+                                        
+                                              <label>Age:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                              <label style="color:blue">{{ patient.age }}</label>
+                            </div>
+                            <button style="margin-left: 360px;" class=" btn btn-success" data-toggle="modal" data-target="#editModal">
+                                    Edit Patient</button>
+                     
+                  <div class="col-lg-6 col-md-6 col-sm-4 "></div>
+                      </div>
+                  </div>
+              </div></div>
+        
+              
+                    <!-- The Modal -->
+                <div class="modal fade" id="editModal" style="z-index:2;position: absolute;">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                  
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 class="modal-title">Edit Patient</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                  
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                                <form  name="form" (ngSubmit)="onUpdatePatient(fm)" #fm="ngForm">
+                                        <div class="form-group">
+                                          <label for="email">Name:</label>
+                                          <input  class="form-control" id="name" ngModel name="name" value="{{patient.name}}" ngModel/>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="Gender">Age:</label>
+                                          <input type="number" class="form-control" id="gender" ngModel name="age"value="{{patient.age}}"  >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Phone:</label>
+                                            <input type="text" class="form-control" id="phone" ngModel name="phone" value="{{patient.phone}}" >
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="Card">Card Number:</label>
+                                              <input type="number" class="form-control" id="Card"ngModel name="card_number"value="{{patient.card_number}}"  ngModel> 
+                                            </div>
+                                              <div class="form-group">
+                                                <label for="gender">Gender:</label>
+                                                <select class="form-control" id="sel2" ngModel name="gender">
+                                                        <option value="m">Male</option>
+                                                        <option value="f">Female</option>
+                                                      </select>
+                                              </div>
+                                              <input type="text" class="form-control" name="id"value="{{patient.id}}" hidden  >
+                                        <button type="submit" class="btn btn-primary btn-block">update</button>
+                                      </form>
+                          
+                        </div>
+                  
+                      </div>
+                    </div>
+                  </div>
+                
+
+  <span  [ngSwitch]="is_update">          
+        <div class="alert alert-success" *ngSwitchCase="true">
+          <strong>Success!</strong>Update.
+        </div>
+        <div class="alert alert-danger" *ngSwitchCase="false">
+          <strong>Failed!</strong> Update.
+        </div>
+         
+    </span>
+</body>
+    
+
+ 

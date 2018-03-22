@@ -1,19 +1,18 @@
 <!--The whole content below can be removed with the new code.-->
 
-  
-<div class="container">
- <h1>ya Rb</h1>
- <nav>
-<a [routerLink]="['/signin']" routerLinkActive="active">sign in</a>
-<br>
-<a [routerLink]="['/signup']">sign up</a>
+<app-nav></app-nav>
 
-<a [routerLink]="['/doctor']">doctor</a>
+<br><br>
+<router-outlet></router-outlet>
+<body class="homebackground">
 
 
-</nav>
+  <h1 class="headone">welcome to clinsys</h1><br><br><br><br><br><br><br><br>
+</body>
+<div  class="footer-copyright py-3 text-center">
+  Osloup company
+    <a href="www.Osloup.com"> Ousloup.com </a>
 </div>
 
-<router-outlet></router-outlet>
 
 

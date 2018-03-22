@@ -1,14 +1,79 @@
-<div class="container">
+<!-- <div class="container">
     <form class="form-signin" (ngSubmit)="onSignup(fm)" #fm="ngForm">
       <span id="reauth-email" class="reauth-email"></span>
       <input type="text" id="username" name="username" ngModel  class="form-control"  placeholder="Enter your name"required>
       <input type="email" id="email" name="email" ngModel class="form-control" placeholder="Email address" required autofocus>
       <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Password" required>
       <button class="btn btn-lg btn-primary btn-block"  type="submit">Sign Up</button>
-    </form><!-- /form -->
+    </form><!-- /form
     <a href="#" class="forgot-password">
       Forgot the password?
     </a>
+    <span  [ngSwitch]="regDone">
+        <div class="alert alert-success" *ngSwitchCase="true">
+          <strong>Success!</strong> resigter please login page.
+        </div>
+        <div class="alert alert-danger" *ngSwitchCase="false">
+          <strong>Failed!</strong> resigter.
+        </div>
+
+    </span>
+  </div> -->
+
+
+  <body class="login2background">
+    <div style="margin-top:-15%;">
+    <div class="container">
+        <div class="col-lg-6 col-md-6 col-sm-8  loginbox">
+            <div class=" row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                    <h1><a class="clynsislogo" style="text-decoration:none; font-family:Courier New">clinsys</a></h1>
+
+                 </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6  ">
+                    <span class="singtext"style="font-family:Courier New;  color: #337ab7; "><h3>sign up</h3> </span>
+                </div>
+
+            </div>
+          <form class="form-signin" (ngSubmit)="onSignup(fm)" #fm="ngForm">
+            <div class=" row loginbox_content ">
+                  <div class="input-group input-group-sm" >
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-user"></span>
+                      </span>
+                      <input class="form-control" type="text" placeholder="User name" name="username" ngModel >
+                  </div>
+                  <br>
+                  <div class="input-group input-group-sm">
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-envelope"></span>
+                      </span>
+                      <input class="form-control" type="email" placeholder="E-Mail" name="email" ngModel >
+                  </div>
+                  <br>
+                  <div class="input-group input-group-sm">
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-lock"></span>
+                      </span>
+                      <input class="form-control" type="password" placeholder="Password" name="password" ngModel >
+                  </div>
+            </div>
+            <div class="row ">
+
+                <div class="col-lg-4 col-md-4 col-sm-4  col-xs-5 ">
+                    <button class="btn btn-lg btn-primary btn-block"  type="submit">Sign Up</button>
+                </div>
+            </div>
+            
+        </form>
+        
+    
+        <div class="col-lg-6 col-md-6 col-sm-4 "></div>
+
+
+    </div>
+    </div>
+    </div>
     <span  [ngSwitch]="regDone">          
         <div class="alert alert-success" *ngSwitchCase="true">
           <strong>Success!</strong> resigter please login page.
@@ -18,4 +83,5 @@
         </div>
          
     </span>
-  </div>
+</body>
+

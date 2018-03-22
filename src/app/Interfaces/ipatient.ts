@@ -1,11 +1,10 @@
+import { Data } from "@angular/router/src/config";
+
 export interface Ipatient {
-    id:number;
     name:string;
-    gender:string;
     age:number;
+    gender:string;
     phone:string;
-    code:string;
     card_number:number;
-
-
+    id:number;
 }
